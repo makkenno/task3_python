@@ -2,9 +2,9 @@ import pandas as pd
 import eel
 
 ### デスクトップアプリ作成課題
-def kimetsu_search(word):
+def kimetsu_search(word, csv_name):
     # 検索対象取得
-    df=pd.read_csv("./source.csv")
+    df=pd.read_csv(f"./{csv_name}")
     source=list(df["name"])
 
     # 検索

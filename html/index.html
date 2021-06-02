@@ -7,6 +7,7 @@
         <h2>eelテスト</h2>
         
         <div>
+            CSVファイル：<input type="text" id="csv_name"><br/>
             検索ワード：<input type="text" id="search_text">
             <input type="submit" id="search" value="検索">
         </div>
@@ -19,13 +20,14 @@
         <script>
             const search = document.getElementById("search")
             const search_text = document.getElementById("search_text")
+            const csv_name = document.getElementById("csv_name")
             search.addEventListener('click', () => {
                 if(!search_text.value) {
                     alert("検索ワードを入力してください");
                     return false;
                 }
 
-                eel.kimetsu_search(search_text.value)
+                eel.kimetsu_search(search_text.value, csv_name.value)
                 search_text.value = ""
 
             })
