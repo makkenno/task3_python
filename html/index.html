@@ -18,16 +18,23 @@
         <script type="text/javascript" src="./eel.js"></script>
         <script>
             const search = document.getElementById("search")
+            const search_text = document.getElementById("search_text")
             search.addEventListener('click', () => {
-                if(!document.getElementById("search_text").value) {
+                if(!search_text.value) {
                     alert("検索ワードを入力してください");
                     return false;
                 }
+
+                eel.kimetsu_search(search_text.value)
+                search_text.value = ""
+
             })
             
 
             eel.expose(view_log_js)
             function view_log_js(text){
+                const result = document.getElementById("result")
+                result.value += text + "\n"
             }
         </script>
     </body>
